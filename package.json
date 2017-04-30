@@ -1,0 +1,23 @@
+{
+  "name": "handlerher",
+  "version": "0.0.1",
+  "description": "",
+  "main": "hh.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekbharatha/HandlerHer.git"
+  },
+  "keywords": [
+    "handler",
+    "her"
+  ],
+  "author": "Vivek Bharatha",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vivekbharatha/HandlerHer/issues"
+  },
+  "homepage": "https://github.com/vivekbharatha/HandlerHer#readme"
+}

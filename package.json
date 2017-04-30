@@ -1,9 +1,10 @@
 {
   "name": "handlerher",
   "version": "0.0.1",
-  "description": "",
+  "description": "App which gives you suggestions when you need to handle her!",
   "main": "hh.js",
   "scripts": {
+    "start": "node hh.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/vivekbharatha/HandlerHer/issues"
   },
-  "homepage": "https://github.com/vivekbharatha/HandlerHer#readme"
+  "homepage": "https://github.com/vivekbharatha/HandlerHer#readme",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "restify": "^4.3.0"
+  }
 }

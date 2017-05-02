@@ -14,7 +14,7 @@ const bot = new Builder.UniversalBot(connector);
 bot.dialog('/', [
   function (session, args, next) {
     if (!session.userData.name) {
-        session.beginDialog('/profile');
+        session.beginDialog('/askName');
     } else {
         next();
     }
@@ -26,7 +26,7 @@ bot.dialog('/', [
   function (session, results, next) {
     if (N.classify(results.response) === 's1') {
       session.send('Sorry to hear about that!');
-      Builder.Prompts.choice(session, 'I understand, please tell about her present mood ?', ['angry', 'happy', 'sad', 'don\'t know', 'hyper']);
+      Builder.Prompts.choice(session, 'I understand, please tell about her present mood ?', ['Angry', 'Happy', 'Sad', 'Hyper', 'Don\'t know']);
     } else if (N.classify(results.response) === 'bye') {
       session.send('TATA!');
     } else {
@@ -34,12 +34,12 @@ bot.dialog('/', [
     }
   },
   function (session, results, next) {
-    console.log('-------------------', results.response);
     session.send('hhmm, I suggest to stay away from her!');
+    session.endDialog();
   }
 ]);
 
-bot.dialog('/profile', [
+bot.dialog('/askName', [
   function (session) {
     Builder.Prompts.text(session, 'Heya whatsup! I didn\'t recognize you, what\'s your name ?');
   },

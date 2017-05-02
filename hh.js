@@ -25,7 +25,8 @@ bot.dialog('/', [
   },
   function (session, results, next) {
     if (N.classify(results.response) === 's1') {
-      Builder.Prompts.text(session, 'Sorry to hear about that! I understand, please tell about her present mood');
+      session.send('Sorry to hear about that!');
+      Builder.Prompts.choice(session, 'I understand, please tell about her present mood ?', ['angry', 'happy', 'sad', 'don\'t know', 'hyper']);
     } else if (N.classify(results.response) === 'bye') {
       session.send('TATA!');
     } else {
@@ -33,6 +34,7 @@ bot.dialog('/', [
     }
   },
   function (session, results, next) {
+    console.log('-------------------', results.response);
     session.send('hhmm, I suggest to stay away from her!');
   }
 ]);

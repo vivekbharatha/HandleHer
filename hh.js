@@ -24,11 +24,16 @@ bot.dialog('/', [
     //TODO:: Need to start actual conversation from here
   },
   function (session, results, next) {
-    if (N.classify(session.message.text) === 's1') {
+    if (N.classify(results.response) === 's1') {
       Builder.Prompts.text(session, 'Sorry to hear about that! I understand, please tell about her present mood');
+    } else if (N.classify(results.response) === 'bye') {
+      session.send('TATA!');
     } else {
       session.send('Sorry, I need to train  myself am not working perfectly ! :(');
     }
+  },
+  function (session, results, next) {
+    session.send('hhmm, I suggest to stay away from her!');
   }
 ]);
 

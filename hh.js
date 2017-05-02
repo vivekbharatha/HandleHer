@@ -4,10 +4,12 @@ const N = require('./N');
 require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 // Connection to Microsoft Bot Framework
-const connector = new Builder.ChatConnector({
-  appId: process.env.APP_ID,
-  appPassword: process.env.APP_PASSWORD
-});
+var options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.appId = process.env.APP_ID;
+  options.appPassword = process.env.APP_PASSWORD;
+}
+const connector = new Builder.ChatConnector();
 // Bot config
 const bot = new Builder.UniversalBot(connector);
 // Root Dialog
@@ -34,8 +36,8 @@ bot.dialog('/', [
     }
   },
   function (session, results, next) {
-    session.send('hhmm, I suggest to stay away from her!');
-    session.endDialog();
+    session.send('Hhmm, I suggest to stay away from her!');
+    session.endDialog('Gotta go! TATA!');
   }
 ]);
 

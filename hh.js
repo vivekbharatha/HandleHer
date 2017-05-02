@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
   options.appId = process.env.APP_ID;
   options.appPassword = process.env.APP_PASSWORD;
 }
-const connector = new Builder.ChatConnector();
+const connector = new Builder.ChatConnector(options);
 // Bot config
 const bot = new Builder.UniversalBot(connector);
 // Root Dialog

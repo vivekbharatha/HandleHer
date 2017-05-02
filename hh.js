@@ -20,8 +20,15 @@ bot.dialog('/', [
     }
   },
   function (session) {
-    session.send('Heya %s! Howz everything going ?', session.userData.name);
+    Builder.Prompts.text(session, 'Heya ' + session.userData.name + '! Howz everything going ?');
     //TODO:: Need to start actual conversation from here
+  },
+  function (session, results, next) {
+    if (N.classify(session.message.text) === 's1') {
+      Builder.Prompts.text(session, 'Sorry to hear about that! I understand, please tell about her present mood');
+    } else {
+      session.send('Sorry, I need to train  myself am not working perfectly ! :(');
+    }
   }
 ]);
 
